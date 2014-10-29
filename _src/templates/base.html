@@ -1,0 +1,20 @@
+<head>
+    <title>
+    {%- if title -%}
+        {{ title }} | mike.fail
+    {%- else -%}
+        mike.fail
+    {%- endif -%}
+    </title>
+    {%- block preamble %}
+    {%- endblock %}
+</head>
+<body>
+{%- block header %}
+    <a href="/"><h1>mike.fail</h1></a>
+{%- endblock %}
+{%- block content %}
+{%- endblock %}
+{%- block footer %}
+{%- endblock %}
+</body>

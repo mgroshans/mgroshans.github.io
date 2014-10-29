@@ -4,10 +4,13 @@
   "description": "mike.fail blog",
   "main": "app.js",
   "dependencies": {
+    "del": "^1.1.0",
+    "extend": "^2.0.0",
     "gulp": "^3.8.9",
     "gulp-rename": "^1.2.0",
-    "handlebars": "^2.0.0",
-    "merge-stream": "^0.1.6",
+    "gulp-swig": "^0.7.4",
+    "marked": "^0.3.2",
+    "q": "^1.1.2",
     "through2": "^0.6.3"
   },
   "devDependencies": {
