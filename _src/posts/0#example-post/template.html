@@ -1,4 +1,6 @@
 {% extends '../../templates/post.html' %}
 {%- block post -%}
-<p>lorem ipsum</p>
+{%- marked -%}
+**lorem** *ipsum*.
+{%- endmarked -%}
 {%- endblock -%}

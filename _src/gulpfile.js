@@ -7,6 +7,7 @@ var data = require('gulp-data');
 var swig = require('gulp-swig');
 var through = require('through2');
 var rename = require('gulp-rename');
+var markedSwig = require('swig-marked');
 
 var posts = [];
 var getPost = function () {
@@ -23,7 +24,12 @@ var getPost = function () {
 gulp.task('index', ['post-metadata'], function () {
     return gulp.src('./templates/index.html')
         .pipe(data({ posts: posts }))
-        .pipe(swig())
+        .pipe(swig({
+            setup: function (swig) {
+                markedSwig.useTag(swig);
+                markedSwig.useFilter(swig);
+            }
+        }))
         .pipe(gulp.dest('../'));
 });
 
