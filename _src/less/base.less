@@ -19,6 +19,7 @@
 .top-level-whitespace() {
     width: 92%;
     margin: 0 auto;
+    max-width: 56rem;
 }
 
 // styles
@@ -31,13 +32,18 @@ body {
     background-color: #ffb558; // yellow-orange-ish
 
     h1 {
+        .top-level-whitespace();
+        font-size: 2rem;
         font-weight: bold;
         color: #fffaf3; // white-ish
-        .top-level-whitespace();
 
         a {
             color: inherit;
             text-decoration: none;
         }
     }
+}
+
+.section.content-container {
+    .top-level-whitespace();
 }
