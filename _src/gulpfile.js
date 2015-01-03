@@ -70,7 +70,7 @@ gulp.task('static', function () {
         .pipe(gulp.dest('../'))
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
     return gulp.src('./less/*.less')
         .pipe(plumber())
         .pipe(less())
