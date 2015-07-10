@@ -1,24 +1,25 @@
 {
-  "name": "mike.fail",
+  "name": "mikegroshans.com",
   "version": "0.0.1",
-  "description": "mike.fail blog",
+  "description": "Mike Groshans' Blog",
   "main": "app.js",
   "dependencies": {
-    "del": "^1.1.0",
-    "extend": "^2.0.0",
-    "gulp": "^3.8.9",
-    "gulp-concat": "^2.4.2",
-    "gulp-less": "^2.0.1",
-    "gulp-plumber": "^0.6.6",
-    "gulp-rename": "^1.2.0",
+    "del": "^1.2.0",
+    "extend": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-data": "^1.2.0",
+    "gulp-less": "^3.0.3",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-swig": "^0.7.4",
-    "marked": "^0.3.2",
-    "q": "^1.1.2",
+    "marked": "^0.3.3",
+    "q": "^1.4.1",
     "swig-marked": "0.0.1",
-    "through2": "^0.6.3"
+    "through2": "^2.0.0"
   },
   "devDependencies": {
-    "express": "^4.10.0"
+    "express": "^4.13.1"
   },
   "author": "Michael Groshans",
   "license": "GPL3"
