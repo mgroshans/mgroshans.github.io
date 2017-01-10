@@ -1,60 +1,45 @@
-var Q = require('q');
-var del = require ('del');
-var gulp = require('gulp');
-var path = require('path');
-var extend = require('extend');
-var data = require('gulp-data');
-var less = require('gulp-less');
-var swig = require('gulp-swig');
-var through = require('through2');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var plumber = require('gulp-plumber');
-var markedSwig = require('swig-marked');
+const del = require ('del');
+const gulp = require('gulp');
+const path = require('path');
+const extend = require('extend');
+const marked = require('marked');
+const data = require('gulp-data');
+const less = require('gulp-less');
+const through = require('through2');
+const nunjucks = require('nunjucks');
+const concat = require('gulp-concat');
+const plumber = require('gulp-plumber');
+const gnunjucks = require('gulp-nunjucks');
+const markdown = require('nunjucks-markdown');
+const frontMatter = require('gulp-front-matter');
 
-var posts = [];
-var getPost = function () {
-    var regex = /^(\d+)#(.*)/;
-    return function (file) {
-        var result = path.dirname(file.relative).match(regex);
-        return {
-            id: +result[1],
-            slug: result[2]
-        }
-    };
-}();
+const posts = [];
+const nunjucksEnv = nunjucks.configure('./templates');
+markdown.register(nunjucksEnv, marked);
 
-gulp.task('index', ['post-metadata'], function () {
+gulp.task('index', ['posts'], function () {
     return gulp.src('./templates/index.html')
         .pipe(plumber())
-        .pipe(data({ posts: posts }))
-        .pipe(swig({
-            setup: function (swig) {
-                markedSwig.useTag(swig);
-                markedSwig.useFilter(swig);
-            }
-        }))
+        .pipe(gnunjucks.compile({ posts: posts }, {env: nunjucksEnv}))
         .pipe(gulp.dest('../'));
 });
 
-gulp.task('post-metadata', function () {
-    return gulp.src('./posts/*/metadata.json')
+gulp.task('posts', function () {
+    const regex = /^(\d+)#(.*)/;
+    return gulp.src('./posts/*/post.html')
         .pipe(plumber())
+        .pipe(frontMatter({ property: 'data', remove: true }))
         .pipe(through.obj(function (file, encoding, callback) {
-            var post = extend(getPost(file), JSON.parse(file.contents));
-            posts[post.id] = post;
+            var match = path.dirname(file.relative).match(regex);
+            file.data = extend(file.data, {
+                id: +match[1],
+                slug: match[2]
+            });
+            posts[file.data.id] = file.data;
             this.push(file);
             return callback();
-        }));
-});
-
-gulp.task('posts', ['post-metadata'], function () {
-    return gulp.src('./posts/*/template.html')
-        .pipe(plumber())
-        .pipe(data(function (file) {
-            return posts[getPost(file).id];
         }))
-        .pipe(swig())
+        .pipe(gnunjucks.compile({}, {env: nunjucksEnv}))
         .pipe(through.obj(function (file, encoding, callback) {
             // can't use gulp-rename because that only exposes the path
             file.path = path.join(file.base, file.data.slug + '.html');
@@ -74,7 +59,7 @@ gulp.task('styles', function () {
     return gulp.src('./less/*.less')
         .pipe(plumber())
         .pipe(less())
-        .pipe(concat('fail.css'))
+        .pipe(concat('site.css'))
         .pipe(gulp.dest('../css/'));
 });
 
