@@ -63,6 +63,7 @@ code {
 }
 .header {
   background-color: #ffb558;
+  box-shadow: 0 .2rem .25rem #d0d0d0;
 }
 .header > div {
   width: 92%;
@@ -106,6 +107,7 @@ ul.posts li {
   background-color: #ffffff;
   padding: 1rem;
   margin: .5rem 0rem;
+  box-shadow: .2rem .2rem .25rem #dddddd;
   list-style-type: none;
 }
 
@@ -113,6 +115,7 @@ ul.posts li {
   background-color: #ffffff;
   padding: 1rem;
   margin: .5rem 0rem;
+  box-shadow: .2rem .2rem .25rem #dddddd;
 }
 .post-container h2 {
   font-size: 1.5rem;
