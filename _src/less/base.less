@@ -31,24 +31,76 @@
        url('../fonts/source-sans-pro-latin-700-italic.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/merriweather-v13-latin-regular.woff2') format('woff2'),
+       url('../fonts/merriweather-v13-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/merriweather-v13-latin-italic.woff2') format('woff2'),
+       url('../fonts/merriweather-v13-latin-italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/merriweather-v13-latin-700.woff2') format('woff2'),
+       url('../fonts/merriweather-v13-latin-700.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/merriweather-v13-latin-700-italic.woff2') format('woff2'),
+       url('../fonts/merriweather-v13-latin-700-italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Droid Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/droid-sans-mono-v7-latin-regular.woff2') format('woff2'),
+       url('../fonts/droid-sans-mono-v7-latin-regular.woff') format('woff');
+}
+
 // mixins
 .top-level-whitespace() {
     width: 92%;
     margin: 0 auto;
-    max-width: 56rem;
+    max-width: 46rem;
 }
 
 // styles
 body {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
+    background-color: #eeeeee; // light grey
+}
+
+code {
+    font-family: 'Droid Sans Mono', monospace;
+    font-size: .9rem;
 }
 
 .header {
     background-color: #ffb558; // yellow-orange-ish
 
-    h1 {
+    >div {
         .top-level-whitespace();
+        padding: 0 1rem;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0 1rem;
         font-size: 2rem;
         font-weight: bold;
         color: #fffaf3; // white-ish
@@ -62,4 +114,23 @@ body {
 
 .section.content-container {
     .top-level-whitespace();
+    padding: .5rem 1rem;
+}
+
+.stand-out-item() {
+    background-color: #ffffff; // white
+    padding: 1rem;
+    margin: .5rem 0rem;
+}
+
+p {
+    font-family: 'Merriweather', 'serif';
+}
+
+:link:hover {
+    text-decoration: underline;
+}
+
+:link {
+    text-decoration: none;
 }

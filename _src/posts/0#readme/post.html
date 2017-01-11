@@ -1,0 +1,55 @@
+---
+title: "Read Me"
+date-published: 2016-01-10
+---
+{% extends 'post.html' %}
+{%- block post -%}
+{%- markdown -%}
+
+A couple years ago I decided I should have a website. After all I'm a software
+developer, and software developers have websites. So I bought a domain...
+
+It turns out that buying the domain was actually the easiest part. You see, the
+gotcha for having a website is that most websites have stuff like `HTML` and
+`CSS` maybe even `JavaScript`. And since I'm a software developer I can't just
+have something as important as the source code of my _personal website_ written
+by _someone else_. Using libraries to build the site is fine of course, but
+certainly any "microblog" framework would be going to far. The logic there
+is very sound I assure you.
+
+Anyway an eager, younger version of myself quickly threw some [awesome
+content](https://github.com/mgroshans/mgroshans.github.io/blob/9f392ea1fada8be3b8917f08a4d46c257769394f/index.html)
+onto the website and called it a day.
+
+Some months later I actually [started generating the
+site](https://github.com/mgroshans/mgroshans.github.io/commit/04ad7f1ecd5d1287241d24fd6808fb85e9c783db).
+I'm a big fan of `gulp` (this is actually true despite any other sarcasm) to
+manage any set of repeated tasks, and building a website turns out to be a set
+of repeated tasks. So using gulp to render my `HTML` and `CSS` was a no-brainer.
+And obviously I need to render this stuff; if I wrote actual `HTML` and `CSS` by
+hand I'd look like a software developer from the stone age. And of course I
+don't need any `JavaScript` on a static website, but it's the natural choice for
+rendering all the other that goes onto the website.
+
+I did need to write something though, so I settled on `handlebars` templates for
+the markup and `LESS` for the styling. It turns out though that `handlebars` is
+pretty limiting even for something as limited as my blog with no content. This
+caused a quick switch to `swig`. Of course I also added `markdown` support so I
+could write posts while staying even farther from `HTML`. I was pretty happy
+with that, but after all that work there wasn't any time left to add awesome
+content, just some average [placeholder
+content](https://github.com/mgroshans/mgroshans.github.io/blob/e7fb7cb91ce3506f6c77d89f20811396d626f8fd/posts/example-post.html).
+
+Which actually brings this little story to the present day, where I'm writing
+this. Because it's now been some months since I last did anything to the website
+and the content hadn't changed since I added the average placeholder content.
+But this time I actually managed to add some real content! This is the content!
+Awesome! A blog about writing a blog. Look at how meta I am.
+
+Oh and of course I still had to change _something_. So now the posts are no
+longer `swig` templates (because that project is no longer maintained), rather
+this post was rendered with `nunjucks` templates! Since both projects are
+basically `jinja2` for `JavaScript` very little work was necessary, hooray!
+
+{%- endmarkdown -%}
+{%- endblock -%}

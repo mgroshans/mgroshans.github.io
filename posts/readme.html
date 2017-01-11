@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Me | Mike Groshans</title>
+    <link href="/css/site.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="header"><div><h1><a href="/">Mike Groshans</a></h1></div></div>
+    <div class="section content-container">
+    <div class="post-container">
+        <h2>Read Me</h2>
+        <div class="post"><p>A couple years ago I decided I should have a website. After all I&#39;m a software
+developer, and software developers have websites. So I bought a domain...</p>
+<p>It turns out that buying the domain was actually the easiest part. You see, the
+gotcha for having a website is that most websites have stuff like <code>HTML</code> and
+<code>CSS</code> maybe even <code>JavaScript</code>. And since I&#39;m a software developer I can&#39;t just
+have something as important as the source code of my <em>personal website</em> written
+by <em>someone else</em>. Using libraries to build the site is fine of course, but
+certainly any &quot;microblog&quot; framework would be going to far. The logic there
+is very sound I assure you.</p>
+<p>Anyway an eager, younger version of myself quickly threw some <a href="https://github.com/mgroshans/mgroshans.github.io/blob/9f392ea1fada8be3b8917f08a4d46c257769394f/index.html">awesome
+content</a>
+onto the website and called it a day.</p>
+<p>Some months later I actually <a href="https://github.com/mgroshans/mgroshans.github.io/commit/04ad7f1ecd5d1287241d24fd6808fb85e9c783db">started generating the
+site</a>.
+I&#39;m a big fan of <code>gulp</code> (this is actually true despite any other sarcasm) to
+manage any set of repeated tasks, and building a website turns out to be a set
+of repeated tasks. So using gulp to render my <code>HTML</code> and <code>CSS</code> was a no-brainer.
+And obviously I need to render this stuff; if I wrote actual <code>HTML</code> and <code>CSS</code> by
+hand I&#39;d look like a software developer from the stone age. And of course I
+don&#39;t need any <code>JavaScript</code> on a static website, but it&#39;s the natural choice for
+rendering all the other that goes onto the website.</p>
+<p>I did need to write something though, so I settled on <code>handlebars</code> templates for
+the markup and <code>LESS</code> for the styling. It turns out though that <code>handlebars</code> is
+pretty limiting even for something as limited as my blog with no content. This
+caused a quick switch to <code>swig</code>. Of course I also added <code>markdown</code> support so I
+could write posts while staying even farther from <code>HTML</code>. I was pretty happy
+with that, but after all that work there wasn&#39;t any time left to add awesome
+content, just some average <a href="https://github.com/mgroshans/mgroshans.github.io/blob/e7fb7cb91ce3506f6c77d89f20811396d626f8fd/posts/example-post.html">placeholder
+content</a>.</p>
+<p>Which actually brings this little story to the present day, where I&#39;m writing
+this. Because it&#39;s now been some months since I last did anything to the website
+and the content hadn&#39;t changed since I added the average placeholder content.
+But this time I actually managed to add some real content! This is the content!
+Awesome! A blog about writing a blog. Look at how meta I am.</p>
+<p>Oh and of course I still had to change <em>something</em>. So now the posts are no
+longer <code>swig</code> templates (because that project is no longer maintained), rather
+this post was rendered with <code>nunjucks</code> templates! Since both projects are
+basically <code>jinja2</code> for <code>JavaScript</code> very little work was necessary, hooray!</p>
+</div>
+    </div>
+    </div>
+</body>
